@@ -182,11 +182,12 @@ public class TableRelation implements AnalyzedRelation {
 
         @Override
         public Symbol visitField(Field field, AnalyzedRelation context) {
-            if (field.relation() == context) {
-                return field.target();
-            }
-            throw new IllegalArgumentException(String.format(
-                    "TableRelation %s can't resolve field of another relation", field.relation()));
+            return field.target();
+            //if (field.relation() == context) {
+            //    return field.target();
+            //}
+            //throw new IllegalArgumentException(String.format(
+            //        "TableRelation %s can't resolve field of another relation", context));
         }
 
         @Override
